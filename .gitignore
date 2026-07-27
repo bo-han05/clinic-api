@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Env files
+.env
+.env.dev
+.env.prod
+
+# Pytest
+.pytest_cache/
+
+# Report output
+*.csv
+*.xlsx
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
