@@ -1,6 +1,6 @@
 # clinic-api
 
-Minimal FastAPI healthcare API using Snowflake Snowpark, SQLModel schemas, Pytest, and Postman.
+A FastAPI healthcare API using Snowflake Snowpark, SQLModel schemas, Pytest, and Postman.
 
 ### Features
 - FastAPI REST API
