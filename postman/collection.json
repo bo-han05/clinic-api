@@ -1,0 +1,112 @@
+{
+  "info": {
+    "name": "Snowflake Clinic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/health"
+      }
+    },
+    {
+      "name": "Patient Books Appointment",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "X-User-Id", "value": "1" }],
+        "url": "http://localhost:8000/appointments",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"provider_id\": 3 }",
+          "options": { "raw": { "language": "json" } }
+        }
+      }
+    },
+    {
+      "name": "List Appointments",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "X-User-Id", "value": "1" }],
+        "url": "http://localhost:8000/appointments"
+      }
+    },
+    {
+      "name": "List Prescriptions",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "X-User-Id", "value": "1" }],
+        "url": "http://localhost:8000/prescriptions"
+      }
+    },
+    {
+      "name": "Patient Denied Prescription Update",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "X-User-Id", "value": "1" }],
+        "url": "http://localhost:8000/prescriptions/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"dosage\": \"20mg\" }",
+          "options": { "raw": { "language": "json" } }
+        }
+      }
+    },
+    {
+      "name": "Provider Updates Prescription",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "X-User-Id", "value": "3" }],
+        "url": "http://localhost:8000/prescriptions/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"dosage\": \"20mg\", \"cost\": 15.0 }",
+          "options": { "raw": { "language": "json" } }
+        }
+      }
+    },
+    {
+      "name": "Patient Updates Own Insurance",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "X-User-Id", "value": "1" }],
+        "url": "http://localhost:8000/patients/1/insurance",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"insurance_policy_number\": \"POL-NEW\" }",
+          "options": { "raw": { "language": "json" } }
+        }
+      }
+    },
+    {
+      "name": "Other Patient Denied Insurance Update",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "X-User-Id", "value": "2" }],
+        "url": "http://localhost:8000/patients/1/insurance",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"insurance_policy_number\": \"POL-HACK\" }",
+          "options": { "raw": { "language": "json" } }
+        }
+      }
+    },
+    {
+      "name": "Prescription Report CSV",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "X-User-Id", "value": "4" }],
+        "url": "http://localhost:8000/reports/prescriptions?fmt=csv"
+      }
+    },
+    {
+      "name": "Prescription Report XLSX",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "X-User-Id", "value": "4" }],
+        "url": "http://localhost:8000/reports/prescriptions?fmt=xlsx"
+      }
+    }
+  ]
+}
