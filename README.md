@@ -2,8 +2,7 @@
 
 Minimal FastAPI healthcare API using Snowflake Snowpark, SQLModel schemas, Pytest, and Postman.
 
-## Features
-
+### Features
 - FastAPI REST API
 - Snowflake Snowpark session created on API startup (via lifespan events)
 - Temporary Snowflake tables/views created from SQLModel-backed schema definitions
@@ -20,8 +19,7 @@ Minimal FastAPI healthcare API using Snowflake Snowpark, SQLModel schemas, Pytes
 - CSV/XLSX prescription report generation
 - Pytest and Postman validation examples
 
-## Setup
-
+### Setup
 ```bash
 python -m venv .venv
 source .venv/bin/activate
