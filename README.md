@@ -87,4 +87,4 @@ Import `postman/collection.json` into Postman, then run all 10 requests against 
 pytest -v
 ```
 
-Expected: 7 passed.
+Expect 7 tests passed.
