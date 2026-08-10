@@ -35,9 +35,12 @@ CREATE DATABASE IF NOT EXISTS CLINIC_DB;
 ```
 
 Edit .env.dev and .env.prod files with your real Snowflake credentials:
-- For SNOWFLAKE_ROLE and SNOWFLAKE_WAREHOUSE, use `SELECT CURRENT_WAREHOUSE(), CURRENT_ROLE();`
-- For `.env.dev`, use `ENV=dev` and `SNOWFLAKE_SCHEMA=HEALTHCARE_DEV`
-- For `.env.prod`, use `ENV=prod` and `SNOWFLAKE_SCHEMA=HEALTHCARE_PROD`
+- Use Account identifier for SNOWFLAKE_ACCOUNT
+- For SNOWFLAKE_ROLE and SNOWFLAKE_WAREHOUSE, use:
+  ```sql
+  SELECT CURRENT_ROLE(), CURRENT_WAREHOUSE();
+  ```
+- Use CLINIC_DB for SNOWFLAKE_DATABASE
 
 ### Run the App
 ```bash
@@ -48,7 +51,6 @@ This automatically creates the schema, tables, view, and seed data in Snowflake.
 
 ### Verify
 Open a second terminal and run:
-
 ```bash
 curl http://localhost:8000/health
 curl -H "X-User-Id: 1" http://localhost:8000/prescriptions
@@ -56,8 +58,7 @@ curl -H "X-User-Id: 1" http://localhost:8000/prescriptions
 
 You should get a healthy status and a list of prescriptions. In `prod` mode, prescriptions will also include a `cost` field.
 
-### 8. Test authorization rules (server running in prod mode)
-
+### 8. Test Authorization Rules (server running in prod mode)
 ```bash
 # Patient denied editing a prescription (expect 403)
 curl -i -X PATCH -H "X-User-Id: 1" -H "Content-Type: application/json" -d '{"dosage": "20mg"}' http://localhost:8000/prescriptions/1
@@ -79,8 +80,7 @@ cat report.csv
 ```
 
 ### Run the Postman collection
-
-Import `postman/collection.json` into Postman, then run all 9 requests against the running server. Confirm you see `200`/`201` for allowed actions and `403` for denied ones.
+Import `postman/collection.json` into Postman, then run all 10 requests against the running server. Confirm you see `200`/`201` for allowed actions and `403` for denied ones.
 
 ### Run the Automated Tests
 ```bash
