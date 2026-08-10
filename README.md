@@ -48,6 +48,7 @@ ENV=dev uvicorn app.main:app --reload
 ```
 
 This automatically creates the schema and temporary tables/view, then seeds them with sample data — all inside Snowflake, scoped to this running session only. Use `ENV=prod` instead of `ENV=dev` to run in prod mode (adds a `cost` field to prescriptions).
+
 Since these tables are temporary, you won't see them if you browse `HEALTHCARE_DEV`/`HEALTHCARE_PROD` in Snowsight — they only exist within the app's own active session, and disappear once the server stops.
 
 ### Verify
@@ -89,4 +90,5 @@ pytest -v
 ```
 
 Expect 7 tests passed.
+
 Unlike the Postman collection, the Pytest suite does not require real Snowflake credentials. Tests use a mocked Snowflake layer (`TESTING=1` skips the real session, and a `FakeDB` fixture stands in for all database calls), so the full suite runs instantly and works offline.
