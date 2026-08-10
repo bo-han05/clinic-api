@@ -58,7 +58,7 @@ curl -H "X-User-Id: 1" http://localhost:8000/prescriptions
 
 You should get a healthy status and a list of prescriptions. In `prod` mode, prescriptions will also include a `cost` field.
 
-### 8. Test Authorization Rules (server running in prod mode)
+### Test Authorization Rules (server running in prod mode)
 ```bash
 # Patient denied editing a prescription (expect 403)
 curl -i -X PATCH -H "X-User-Id: 1" -H "Content-Type: application/json" -d '{"dosage": "20mg"}' http://localhost:8000/prescriptions/1
