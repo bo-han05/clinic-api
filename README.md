@@ -75,8 +75,8 @@ curl -i -X PATCH -H "X-User-Id: 1" -H "Content-Type: application/json" -d '{"ins
 
 ### Generate a Report
 ```bash
-curl -H "X-User-Id: 4" "http://localhost:8000/reports/prescriptions?fmt=csv" -o report.csv
-cat report.csv
+curl -H "X-User-Id: 4" "http://localhost:8000/reports/prescriptions?fmt=csv" -o prescription_report.csv
+cat prescription_report.csv
 ```
 
 ### Run the Postman collection
