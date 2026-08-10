@@ -73,8 +73,8 @@ def seed_data(sf, env: str):
         sf,
         """
         insert into users (id, name, role) values
-        (1, 'Alice Patient', 'patient'),
-        (2, 'Bob Patient', 'patient'),
+        (1, 'Alice Robinson', 'patient'),
+        (2, 'Bob Parker', 'patient'),
         (3, 'Dr. Smith', 'provider'),
         (4, 'Admin User', 'admin')
         """,

@@ -13,8 +13,8 @@ from app import db
 class FakeDB:
     def __init__(self):
         self.users = {
-            1: {"id": 1, "name": "Alice Patient", "role": "patient"},
-            2: {"id": 2, "name": "Bob Patient", "role": "patient"},
+            1: {"id": 1, "name": "Alice Robinson", "role": "patient"},
+            2: {"id": 2, "name": "Bob Parker", "role": "patient"},
             3: {"id": 3, "name": "Dr. Smith", "role": "provider"},
             4: {"id": 4, "name": "Admin User", "role": "admin"},
         }
